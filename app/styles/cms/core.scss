@@ -1,0 +1,97 @@
+.tingCreators {
+    padding: 2rem 0 0;
+    span {
+        text-transform: capitalize;
+        border: 0;
+        background: $blue-light;
+        color: $white;
+        cursor: pointer;
+        margin-right: 1rem;
+        padding: 1rem 3rem;
+    }
+}
+
+.ting {
+    box-sizing: border-box;
+    text-align: center;
+    max-width: 700px;
+    position: relative;
+    width: 100%;
+    display: block;
+    border: 1px solid $blue-light;
+    background: #eff4f9;
+    margin-bottom: 2rem;
+    padding: 2rem;
+    h1 {
+        color: $blue-light;
+        font-size: 1.8rem;
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        img {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 1rem;
+        }
+    }
+    .controls {
+        position: absolute;
+        right: 1rem;
+        top: 1rem;
+        span {
+            cursor: pointer;
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 1rem;
+        }
+    }
+}
+
+.gu-mirror {
+    position: fixed !important;
+    z-index: 9999 !important;
+    opacity: 0.8;
+    &.ting {
+        background: #eff4f9;
+    }
+}
+
+.gu-hide {
+    display: none !important;
+}
+
+.gu-unselectable {
+    user-select: none !important;
+}
+
+.gu-transit {
+    opacity: 0.9;
+    &.ting {
+        background: rgba($blue-light, 0.7);
+        border-left: 20px solid $blue-light;
+    }
+}
+
+#Root_Tings {
+    position: relative;
+}
+
+.ting--form {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    top: 0;
+    background: rgba($black-dark, 0.7);
+    text-align: center;
+    .innerWrap {
+        padding: 1rem;
+        background: $off-white;
+        margin: 3rem auto;
+        text-align: left;
+        width: 90%;
+        max-width: 660px;
+    }
+}

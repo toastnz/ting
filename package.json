@@ -1,0 +1,29 @@
+{
+  "name": "QuickSilver",
+  "version": "0.0.2",
+  "description": "Build package for a clean application",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toastnz/quicksilver"
+  },
+  "scripts": {
+    "start": "gulp --silent"
+  },
+  "license": "BSD-3-Clause",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "chalk": "^1.1.3",
+    "fs": "0.0.2",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-pixrem": "^1.0.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-replace": "^0.5.4",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-bulk-import": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-util": "^3.0.7",
+    "gulp.spritesmith": "^6.2.1"
+  }
+}
