@@ -27,11 +27,11 @@ class Ting extends DataObject {
         'PaddingLeft'   => '0',
 
         'MarginTop'    => '0',
-        'MarginRight'  => 'auto',
+        'MarginRight'  => '0',
         'MarginBottom' => '0',
-        'MarginLeft'   => 'auto',
+        'MarginLeft'   => '0',
 
-        'BackgroundColour' => '#ffffff',
+        'BackgroundColour' => 'ffffff',
     ];
 
     private static $summary_fields = [
