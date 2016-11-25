@@ -16,7 +16,7 @@ class Ting extends DataObject {
         'MarginBottom' => 'Varchar',
         'MarginLeft'   => 'Varchar',
 
-        'BackgroundColour' => 'Color',
+//        'BackgroundColour' => 'Color',
 
     ];
 
@@ -57,10 +57,10 @@ class Ting extends DataObject {
                 TextField::create('MarginLeft', 'Margin Left'),
             ]
         );
-        $fields->addFieldsToTab('Root.Background', [
-                ColorField::create('BackgroundColour', 'Background Colour'),
-            ]
-        );
+//        $fields->addFieldsToTab('Root.Background', [
+//                ColorField::create('BackgroundColour', 'Background Colour'),
+//            ]
+//        );
         return $fields;
     }
 

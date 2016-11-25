@@ -9,7 +9,7 @@ class ImageTing extends Ting {
     function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->addFieldToTab('Root.Main',
-            UploadField::create('Image', 'Image')
+            TingFormUploadField::create('Image', 'Image')
         );
         return $fields;
     }
