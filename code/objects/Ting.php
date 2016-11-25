@@ -65,7 +65,7 @@ class Ting extends DataObject {
     }
 
     public function getIncludeTemplate() {
-        return $this->renderWith($this->ClassName . '_cms');
+        return $this->renderWith('Ting_cms');
     }
 
     public function prettyName($removeWords = ['Ting', 'ting']) {
@@ -74,6 +74,39 @@ class Ting extends DataObject {
 
     public function getRenderTemplate() {
         return $this->renderWith($this->ClassName . '_site');
+    }
+
+    public function getStyles() {
+        $styles = '';
+
+        if ($this->PaddingTop) {
+            $styles .= 'padding-top:' . $this->PaddingTop . 'px;';
+        }
+        if ($this->PaddingRight) {
+            $styles .= 'padding-right:' . $this->PaddingRight . 'px;';
+        }
+        if ($this->PaddingBottom) {
+            $styles .= 'padding-bottom:' . $this->PaddingBottom . 'px;';
+        }
+        if ($this->PaddingLeft) {
+            $styles .= 'padding-left:' . $this->PaddingLeft . 'px;';
+        }
+        if ($this->MarginTop) {
+            $styles .= 'margin-top:' . $this->MarginTop . 'px;';
+        }
+        if ($this->MarginRight) {
+            $styles .= 'margin-right:' . $this->MarginRight . 'px;';
+        }
+        if ($this->MarginBottom) {
+            $styles .= 'margin-bottom:' . $this->MarginBottom . 'px;';
+        }
+        if ($this->MarginLeft) {
+            $styles .= 'margin-left:' . $this->MarginLeft . 'px;';
+        }
+        if ($this->BackgroundColour) {
+            $styles .= 'background-color:#' . $this->BackgroundColour . ';';
+        }
+        return $styles;
     }
 
 

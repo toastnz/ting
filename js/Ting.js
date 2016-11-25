@@ -1,3 +1,4 @@
+/* global: dragula */
 (function ($) {
 
     const $ting  = $('#ting');
@@ -13,6 +14,7 @@
 
     $ting.entwine({
         onmatch: function () {
+
             dragula([document.getElementById('tings')], {}).on('drop', function () {
                 updateTingOrder();
             });
