@@ -1,4 +1,3 @@
-/* global: dragula */
 (function ($) {
 
     const $ting  = $('#ting');
@@ -23,15 +22,13 @@
                 onclick: function () {
                     let $this = $(this);
                     let $form = $this.closest('form');
-
                     $.ajax({
-                        url    : api.saveTing,
-                        data   : {
+                        url       : api.saveTing,
+                        data      : {
                             Type    : $this.attr('data-type'),
                             tingID  : parseInt($this.attr('data-ting-id')),
                             formData: $form.serialize()
-                        },
-                        success: function (response) {
+                        }, success: function (response) {
                             console.log(response);
                             $('.ting--form').remove();
                         }
@@ -51,12 +48,11 @@
                     e.preventDefault();
                     let $this = $(this);
                     $.ajax({
-                        url    : api.updateTing,
-                        data   : {
+                        url       : api.updateTing,
+                        data      : {
                             Type  : $this.attr('data-type'),
                             tingID: parseInt($this.attr('data-ting-id'))
-                        },
-                        success: function (response) {
+                        }, success: function (response) {
                             $('.js-tings').append(response);
                             $('.tabs li').click(function (e) {
                                 e.preventDefault();
@@ -75,12 +71,11 @@
                 onclick: function () {
                     let $this = $(this);
                     $.ajax({
-                        url    : api.createTing,
-                        data   : {
+                        url       : api.createTing,
+                        data      : {
                             ParentID: parseInt($this.attr('data-parentID')),
                             Type    : $this.attr('data-type'),
-                        },
-                        success: function (response) {
+                        }, success: function (response) {
                             $('.js-tings').append(response);
                         }
                     });
@@ -119,8 +114,8 @@
                     }
                 });
             }
-
         }
+
     });
 }(jQuery));
 

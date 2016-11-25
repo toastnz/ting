@@ -161,7 +161,6 @@ class Ting_Controller extends LeftAndMain {
         $ting   = $type::get()->byID($tingID);
         if ($ting) {
             $ting->delete();
-            return 'success';
         } else {
             return 'Ting doesnt Exist';
         }
@@ -171,20 +170,17 @@ class Ting_Controller extends LeftAndMain {
         $tingID = $request->getVar('tingID');
         $type   = $request->getVar('Type');
         $ting   = $type::get()->byID($tingID);
-
-        $fields = $ting->getCMSFields();
-        $fields->removeByName(['ParentID', 'ID', 'Order']);
-
-        $actions = FieldList::create(
-            FormAction::create('cancelTing', 'Cancel'),
-            FormAction::create('saveTing', 'Save')->setAttribute('data-ting-id', $tingID)->setAttribute('data-type', $type)
-        );
-
-        $requiredFields = RequiredFields::create();
-
-        $form = Form::create($this, 'TingForm', $fields, $actions, $requiredFields)->loadDataFrom($ting);
-
-        return $form->renderWith('TingForm');
+        if ($ting) {
+            $fields = $ting->getCMSFields();
+            $fields->removeByName(['ParentID', 'ID', 'Order']);
+            $actions        = FieldList::create(
+                FormAction::create('cancelTing', 'Cancel'),
+                FormAction::create('saveTing', 'Save')->setAttribute('data-ting-id', $tingID)->setAttribute('data-type', $type)
+            );
+            $requiredFields = RequiredFields::create();
+            $form           = Form::create($this, 'TingForm', $fields, $actions, $requiredFields)->loadDataFrom($ting);
+            return $form->renderWith('TingForm');
+        }
     }
 
     public function saveTing(SS_HTTPRequest $request) {
