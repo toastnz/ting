@@ -149,7 +149,7 @@ class Ting_Controller extends LeftAndMain {
         $ting->ParentID = $parentID;
         $ting->Order    = 10000;
         if ($ting->write()) {
-            return $ting->renderWith($type . '_cms');
+            return $ting->renderWith('Ting_cms');
         } else {
             return 'error';
         }
