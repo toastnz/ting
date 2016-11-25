@@ -22,8 +22,6 @@ class TingPage extends Page {
     }
 
 
-
-
     public function getCMSFields() {
         $fields = parent::getCMSFields();
         $fields->removeByName('Content');

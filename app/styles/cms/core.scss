@@ -11,6 +11,24 @@
     }
 }
 
+.tingHeader {
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    color: $blue-light;
+    font-size: 3rem;
+    position: relative;
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+    display: inline-block;
+    vertical-align: center;
+    img {
+        display: inline-block;
+        vertical-align: center;
+        margin-left: 1rem;
+    }
+}
+
 .ting {
     box-sizing: border-box;
     text-align: center;
@@ -20,8 +38,10 @@
     display: block;
     border: 1px solid $blue-light;
     background: #eff4f9;
-    margin-bottom: 2rem;
+    margin: 0 auto 2rem;
     padding: 2rem;
+    cursor: pointer;
+    border-left: 30px solid $blue-light;
     h1 {
         color: $blue-light;
         font-size: 1.8rem;
@@ -69,7 +89,7 @@
     opacity: 0.9;
     &.ting {
         background: rgba($blue-light, 0.7);
-        border-left: 20px solid $blue-light;
+        border-left: 30px solid rgba($blue-light, 0);
     }
 }
 
@@ -93,5 +113,59 @@
         text-align: left;
         width: 90%;
         max-width: 660px;
+    }
+}
+
+#ting {
+    text-align: center;
+}
+
+.tabs {
+    li {
+        float: left;
+        width: 20%;
+        background: #eff4f9;
+        display: block;
+        text-align: center;
+        text-decoration: none !important;
+        text-transform: uppercase;
+        color: $text;
+        padding: 20px 0;
+        border-bottom: 2px solid $blue-dark;
+        cursor: pointer;
+        &:hover {
+            background: $blue-dark;
+            color: white;
+        }
+        &.active {
+            background: $blue-light;
+            color: white;
+        }
+    }
+}
+
+.tabgroup {
+    > div {
+        padding: 30px;
+    }
+}
+
+.tingTab {
+    display: none;
+    &.active {
+        display: block;
+    }
+}
+
+.tingActions {
+    display: block;
+    text-align: right;
+    padding: 0 3.5rem 2rem 0;
+    input {
+        background: $blue-light !important;
+        text-shadow: none !important;
+        color: $white !important;
+        border: 0 !important;
+        outline: 0 !important
     }
 }

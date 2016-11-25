@@ -1,13 +1,14 @@
 <div class="ting--form">
     <div class="innerWrap">
         <form $FormAttributes>
-            <h2>Edit Block</h2>
             <% loop $Fields %>
                 $Field
             <% end_loop %>
-            <% loop $Actions %>
-                $Field
-            <% end_loop %>
+            <div class="tingActions">
+                <% loop $Actions %>
+                    $Field
+                <% end_loop %>
+            </div>
         </form>
     </div>
 </div>

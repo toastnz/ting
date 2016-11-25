@@ -1,4 +1,8 @@
 <div id="ting">
+    <h1 class="tingHeader">
+        Tings
+        <img src="ting/dist/svgs/ting.svg">
+    </h1>
     <div class="tingHolder js-tings" id="tings" data-parentID="$ID">
         <% loop $getTings %>
             $IncludeTemplate
@@ -9,8 +13,6 @@
         <span class="js-create-ting" data-parentID="$ID" data-type="TextTing">text</span>
         <span class="js-create-ting" data-parentID="$ID" data-type="ImageTing">image</span>
         <span class="js-create-ting" data-parentID="$ID" data-type="VideoTing">video</span>
-        <span class="js-add-ting" data-parentID="$ID" data-type="QuoteTing">quote</span>
-        <span class="js-add-ting" data-parentID="$ID" data-type="FileTing">file</span>
     </div>
 
 </div>
