@@ -28,8 +28,7 @@
                             Type    : $this.attr('data-type'),
                             tingID  : parseInt($this.attr('data-ting-id')),
                             formData: $form.serialize()
-                        }, success: function (response) {
-                            console.log(response);
+                        }, success: function () {
                             $('.ting--form').remove();
                         }
                     });
@@ -90,10 +89,8 @@
                         data      : {
                             Type  : $this.attr('data-type'),
                             tingID: parseInt($this.attr('data-ting-id'))
-                        }, success: function (response) {
-                            if (response == 'success') {
-                                $this.closest('.ting').remove();
-                            }
+                        }, success: function () {
+                            $this.closest('.ting').remove();
                         }
                     });
                 }
@@ -105,12 +102,10 @@
                     order.push($(this).attr('data-id'));
                 });
                 $.ajax({
-                    dataType  : 'json',
-                    url       : api.reorderTings,
-                    data      : {
+                    dataType: 'json',
+                    url     : api.reorderTings,
+                    data    : {
                         Order: order
-                    }, success: function (response) {
-                        console.log(response);
                     }
                 });
             }
