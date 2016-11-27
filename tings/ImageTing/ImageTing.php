@@ -14,4 +14,12 @@ class ImageTing extends Ting {
         return $fields;
     }
 
+    public function customUpdate($data)
+    {
+        parent::update($data);
+        if(isset($data['Image']) && isset($data['Image']['Files'])) {
+            $this->ImageID = reset($data['Image']['Files']);
+        }
+    }
+
 }

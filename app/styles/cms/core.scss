@@ -36,12 +36,15 @@
     position: relative;
     width: 100%;
     display: block;
-    border: 1px solid $blue-light;
-    background: #eff4f9;
+    background: #f8f6f7;
+    border: 1px solid #d0d3d5;
     margin: 0 auto 2rem;
     padding: 2rem;
-    cursor: pointer;
-    border-left: 30px solid $blue-light;
+    height: 160px;
+    > img {
+        @include vertical-center;
+        opacity: 0.9;
+    }
     h1 {
         color: $blue-light;
         font-size: 1.8rem;
@@ -117,44 +120,8 @@
 }
 
 #ting {
-    text-align: center;
-}
-
-.tabs {
-    li {
-        float: left;
-        width: 20%;
-        background: #eff4f9;
-        display: block;
-        text-align: center;
-        text-decoration: none !important;
-        text-transform: uppercase;
-        color: $text;
-        padding: 20px 0;
-        border-bottom: 2px solid $blue-dark;
-        cursor: pointer;
-        &:hover {
-            background: $blue-dark;
-            color: white;
-        }
-        &.active {
-            background: $blue-light;
-            color: white;
-        }
-    }
-}
-
-.tabgroup {
-    > div {
-        padding: 30px;
-    }
-}
-
-.tingTab {
-    display: none;
-    &.active {
-        display: block;
-    }
+    text-align: left;
+    max-width: 700px;
 }
 
 .tingActions {
@@ -168,4 +135,44 @@
         border: 0 !important;
         outline: 0 !important
     }
+}
+
+#Root_Margin,
+#Root_Padding {
+    height: 320px;
+    width: 400px;
+    position: relative;
+}
+#Form_TingForm_MarginTop_Holder,
+#Form_TingForm_PaddingTop_Holder {
+    width: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+#Form_TingForm_MarginBottom_Holder,
+#Form_TingForm_PaddingBottom_Holder {
+    width: 80px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: 200px;
+}
+#Form_TingForm_MarginLeft_Holder,
+#Form_TingForm_PaddingLeft_Holder {
+    width: 80px;
+    position: absolute;
+    left: 30px;
+    margin: 0 auto;
+    top: 100px;
+}
+#Form_TingForm_MarginRight_Holder,
+#Form_TingForm_PaddingRight_Holder {
+    width: 80px;
+    position: absolute;
+    right: 30px;
+    margin: 0 auto;
+    top: 100px;
 }

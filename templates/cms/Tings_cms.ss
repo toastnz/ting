@@ -13,6 +13,7 @@
         <span class="js-create-ting" data-parentID="$ID" data-type="TextTing">text</span>
         <span class="js-create-ting" data-parentID="$ID" data-type="ImageTing">image</span>
         <span class="js-create-ting" data-parentID="$ID" data-type="VideoTing">video</span>
+        <span class="js-create-ting" data-parentID="$ID" data-type="TestimonialTing">testimonial slider</span>
     </div>
 
 </div>

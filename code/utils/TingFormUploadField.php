@@ -9,6 +9,22 @@
 class TingFormUploadField extends UploadField
 {
 
+    public function QueryString()
+    {
+        if(Controller::has_curr()) {
+            return '?Type=' . Controller::curr()->getRequest()->requestVar('Type') . '&tingID=' . Controller::curr()->getRequest()->requestVar('tingID');
+        }
+        return '';
+    }
+
+    public function Field($properties = array()) {
+        $this->setConfig('url', $this->Link('upload') . $this->QueryString());
+        $this->setConfig('urlSelectDialog', $this->Link('select') . $this->QueryString());
+        $this->setConfig('urlAttach', $this->Link('attach') . $this->QueryString());
+        $this->setConfig('urlFileExists', $this->Link('fileexists') . $this->QueryString());
+        return parent::Field($properties);
+    }
+
 
     /**
      * @param int $itemID
@@ -35,7 +51,7 @@ class TingFormUploadField_RequestHandler extends UploadField_ItemHandler
     public function QueryString()
     {
         if(Controller::has_curr()) {
-            return '?Type=' . Controller::curr()->getRequest()->requestVar('Type') . '&tingID=' . Controller::curr()->getRequest()->requestVar(tingID);
+            return '?Type=' . Controller::curr()->getRequest()->requestVar('Type') . '&tingID=' . Controller::curr()->getRequest()->requestVar('tingID');
         }
         return '';
     }

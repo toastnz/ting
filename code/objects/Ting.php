@@ -16,7 +16,7 @@ class Ting extends DataObject {
         'MarginBottom' => 'Varchar',
         'MarginLeft'   => 'Varchar',
 
-//        'BackgroundColour' => 'Color',
+        'BackgroundColour' => 'Color',
 
     ];
 
@@ -57,10 +57,10 @@ class Ting extends DataObject {
                 TextField::create('MarginLeft', 'Margin Left'),
             ]
         );
-//        $fields->addFieldsToTab('Root.Background', [
-//                ColorField::create('BackgroundColour', 'Background Colour'),
-//            ]
-//        );
+        $fields->addFieldsToTab('Root.Background', [
+                ColorField::create('BackgroundColour', 'Background Colour'),
+            ]
+        );
         return $fields;
     }
 
@@ -116,14 +116,23 @@ class Ting_Controller extends LeftAndMain {
 
     static $url_segment = 'ting';
 
+    static $url_handlers = [
+        'TingForm/field/$Type/item/new' => 'newObject'
+    ];
+
     static $allowed_actions = [
         'createTing',
         'updateTing',
         'destroyTing',
         'reorderTings',
         'saveTing',
-        'TingForm'
+        'TingForm',
+        'newObject'
     ];
+
+    function newObject() {
+        return 'This is it';
+    }
 
     function reorderTings(SS_HTTPRequest $request) {
         $tingIDs = $request->getVar('Order');
@@ -166,21 +175,9 @@ class Ting_Controller extends LeftAndMain {
         }
     }
 
-    function updateTing(SS_HTTPRequest $request) {
-        $tingID = $request->getVar('tingID');
-        $type   = $request->getVar('Type');
-        $ting   = $type::get()->byID($tingID);
-        if ($ting) {
-            $fields = $ting->getCMSFields();
-            $fields->removeByName(['ParentID', 'ID', 'Order']);
-            $actions        = FieldList::create(
-                FormAction::create('cancelTing', 'Cancel'),
-                FormAction::create('saveTing', 'Save')->setAttribute('data-ting-id', $tingID)->setAttribute('data-type', $type)
-            );
-            $requiredFields = RequiredFields::create();
-            $form           = Form::create($this, 'TingForm', $fields, $actions, $requiredFields)->loadDataFrom($ting);
-            return $form->renderWith('TingForm');
-        }
+    function updateTing() {
+        $form = $this->TingForm();
+        return $form->renderWith('TingForm');
     }
 
     public function saveTing(SS_HTTPRequest $request) {
@@ -195,10 +192,33 @@ class Ting_Controller extends LeftAndMain {
 
         $ting = $type::get()->byID($tingID);
 
-        $ting->update($params);
+        if (method_exists($ting, 'customUpdate')) {
+            $ting->customUpdate($params);
+        } else {
+            $ting->update($params);
+        }
 
         $ting->write();
-        return 'You know nothing jon snow';
+        return 'Ting savedd correctly';
+    }
+
+    public function TingForm() {
+        $request = $this->getRequest();
+        $tingID  = $request->getVar('tingID');
+        $type    = $request->getVar('Type');
+        $ting    = $type::get()->byID($tingID);
+
+        if ($ting) {
+            $fields = $ting->getCMSFields();
+            $fields->removeByName(['ParentID', 'ID', 'Order']);
+            $actions        = FieldList::create(
+                FormAction::create('cancelTing', 'Cancel'),
+                FormAction::create('saveTing', 'Save')->setAttribute('data-ting-id', $tingID)->setAttribute('data-type', $type)
+            );
+            $requiredFields = RequiredFields::create();
+            return Form::create($this, 'TingForm', $fields, $actions, $requiredFields)->loadDataFrom($ting);
+        }
+
     }
 
 

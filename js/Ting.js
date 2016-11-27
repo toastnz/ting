@@ -106,6 +106,8 @@
                     url     : api.reorderTings,
                     data    : {
                         Order: order
+                    }, success(response){
+                        console.log(response)
                     }
                 });
             }
